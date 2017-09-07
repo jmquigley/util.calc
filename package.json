@@ -16,12 +16,15 @@
     "node": ">=7.5"
   },
   "dependencies": {
-    "util.pkgwrap": "0.0.67"
+    "util.pkgwrap": "0.0.67",
+    "util.toolbox": "^0.0.43"
   },
   "devDependencies": {
+    "@types/debug": "^0.0.30",
     "@types/node": "^8.0.27",
     "ava": "^0.22.0",
     "coveralls": "^2.13.1",
+    "debug": "^3.0.1",
     "nyc": "^11.2.1",
     "tslint": "^5.7.0",
     "typescript": "^2.5.2"

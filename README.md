@@ -25,14 +25,44 @@ $ yarn run all
 
 
 ## Overview
-TODO: add overview
+Takes an HTML width/size string and performs a calcuation against it.  This would be used to dynamically size an attribute for inline styles in a React component (e.g.).  It uses four basic operations (addition, subtraction multiplication, and division).
+
+e.g.
+
+taking "20px" and doubling its size:
+
+```javascxript
+calc('20px', '* 2'); // '40px'
+```
 
 ## Usage
-TODO: add usage
+This module exposes a single module named [calc](docs/index.md).  It will take an HTML size string and perform one of four basic operations:
 
-## API
-TOOD: add api
 
-#### attributes
+#### Addition
 
-#### methods
+```javascript
+import {calc} from 'util.calc';
+calc('20px', '+ 5'); // 25px
+```
+
+#### Subtraction
+
+```javascript
+import {calc} from 'util.calc';
+calc('20px', '- 5'); // 15px
+```
+
+#### Multiplication
+
+```javascript
+import {calc} from 'util.calc';
+calc('20px', '* 2'); // 40px
+```
+
+#### Division
+
+```javascript
+import {calc} from 'util.calc';
+calc('20px', '/ 4'); // 5px
+```
