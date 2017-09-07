@@ -1,0 +1,42 @@
+{
+  "name": "util.calc",
+  "version": "0.0.0",
+  "author": "jmquigley <jmquigley@outlook.com>",
+  "description": "Takes an HTML sizing string and computes a new value",
+  "private": false,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmquigley/util.calc"
+  },
+  "bugs": {
+    "url": "https://github.com/jmquigley/util.calc/issues"
+  },
+  "engines": {
+    "node": ">=7.5"
+  },
+  "dependencies": {
+    "util.pkgwrap": "0.0.67"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.27",
+    "ava": "^0.22.0",
+    "coveralls": "^2.13.1",
+    "nyc": "^11.2.1",
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.2"
+  },
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "all": "yarn install && yarn run clean && yarn run lint && yarn run build && yarn test && yarn run docs && yarn run report",
+    "build": "pkgwrap --build",
+    "clean": "pkgwrap --clean",
+    "coverage": "pkgwrap --coverage",
+    "docs": "pkgwrap --docs",
+    "lint": "pkgwrap --lint",
+    "postinstall": "pkgwrap --postinstall",
+    "report": "pkgwrap --reporting",
+    "test": "pkgwrap --testing --ava"
+  }
+}
