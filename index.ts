@@ -1,8 +1,13 @@
 'use strict';
 
-import {regexIndexOf} from 'util.toolbox';
+import {nil, regexIndexOf} from 'util.toolbox';
 
-const debug = require('debug')('calc');
+const pkg = require('./package.json');
+
+let debug: any = nil;
+if (pkg.debug) {
+	debug = require('debug')('calc');
+}
 
 /**
  * Takes an HTML width/size string and performs a calcuation against it.  This

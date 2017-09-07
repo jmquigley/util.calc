@@ -4,6 +4,7 @@
   "author": "jmquigley <jmquigley@outlook.com>",
   "description": "Takes an HTML sizing string and computes a new value",
   "private": false,
+	"debug": false,
   "license": "MIT",
   "repository": {
     "type": "git",
