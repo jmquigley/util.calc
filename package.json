@@ -1,10 +1,10 @@
 {
   "name": "util.calc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "jmquigley <jmquigley@outlook.com>",
   "description": "Takes an HTML sizing string and computes a new value",
   "private": false,
-	"debug": false,
+  "debug": false,
   "license": "MIT",
   "repository": {
     "type": "git",
