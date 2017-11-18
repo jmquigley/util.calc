@@ -1,6 +1,7 @@
 'use strict';
 
-import {nil, regexIndexOf} from 'util.toolbox';
+import {regexIndexOf} from 'util.string';
+import {nil} from 'util.toolbox';
 
 const pkg = require('./package.json');
 
