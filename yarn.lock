@@ -3771,6 +3771,10 @@ util.constants@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/util.constants/-/util.constants-0.0.7.tgz#e0a979b9009eb36eba7119c952ff4b1037e24122"
 
+util.constants@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/util.constants/-/util.constants-0.0.8.tgz#57f36fb329a8d5148e3b5f543654d6294d4560f8"
+
 util.pkgwrap@^0.0.88:
   version "0.0.88"
   resolved "https://registry.yarnpkg.com/util.pkgwrap/-/util.pkgwrap-0.0.88.tgz#784f7638cad641e6a78301828e7861a2948797f8"
@@ -3793,13 +3797,6 @@ util.pkgwrap@^0.0.88:
 util.rstrip@0.0.32:
   version "0.0.32"
   resolved "https://registry.yarnpkg.com/util.rstrip/-/util.rstrip-0.0.32.tgz#1bf181332582dbf31b31989cec61e52c8e098e12"
-
-util.string@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/util.string/-/util.string-0.0.7.tgz#2489260aede174f8cbb9859643f48ad44dca6188"
-  dependencies:
-    util.constants "^0.0.7"
-    xregexp "^3.2.0"
 
 util.toolbox@^0.0.56:
   version "0.0.56"
@@ -3940,10 +3937,6 @@ xdg-basedir@^3.0.0:
 xmlcreate@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/xmlcreate/-/xmlcreate-1.0.2.tgz#fa6bf762a60a413fb3dd8f4b03c5b269238d308f"
-
-xregexp@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/xregexp/-/xregexp-3.2.0.tgz#cb3601987bfe2695b584000c18f1c4a8c322878e"
 
 xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.1"

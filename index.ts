@@ -1,14 +1,8 @@
 'use strict';
 
-import {regexIndexOf} from 'util.string';
-import {nil} from 'util.toolbox';
+const debug = require('debug')('util.calc');
 
-const pkg = require('./package.json');
-
-let debug: any = nil;
-if (pkg.debug) {
-	debug = require('debug')('calc');
-}
+import {regexNumber} from 'util.constants';
 
 /**
  * Takes an HTML width/size string and performs a calcuation against it.  This
@@ -27,7 +21,7 @@ if (pkg.debug) {
 export function calc(text: string, oper: string): string {
 
 	// The input text must start with a number
-	if (!/^\d+/.test(text.trim())) {
+	if (!/^[+-\d]+/.test(text.trim())) {
 		throw new Error(`Invalid number string given to calc (${text}).  Must begin with number`);
 	}
 
@@ -44,14 +38,12 @@ export function calc(text: string, oper: string): string {
 	}
 
 	let ext: string = '';
-	let val: number;
-	let idx = regexIndexOf(text, /\D/);
-	if (idx !== -1) {
-		ext = text.slice(idx);
-	} else {
-		idx = text.length;
+	let val: number = 0;
+	const match: any = text.match(regexNumber);
+	if (match) {
+		val = Number(match[0]);
+		ext = text.slice(match[0].length);
 	}
-	val = Number(text.slice(0, idx));
 	const delta = Number(oper.slice(1));
 
 	let result: number;
