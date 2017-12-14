@@ -36,7 +36,7 @@ calc('20px', '* 2'); // '40px'
 ```
 
 ## Usage
-This module exposes a single module named [calc](docs/index.md).  It will take an HTML size string and perform one of four basic operations:
+This module exposes a single module named [calc](docs/index.md).  It will take an HTML size string or a number and perform one of four basic operations:
 
 
 #### Addition

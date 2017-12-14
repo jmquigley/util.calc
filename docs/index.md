@@ -1,6 +1,6 @@
 <a name="calc"></a>
 
-## calc(text, oper) ⇒
+## calc(inp, oper) ⇒
 Takes an HTML width/size string and performs a calcuation against it.  This
 would be used to dynamically size an attribute for inline styles in a
 React component (e.g.).  It uses four basic operations (addition, subtraction
@@ -15,6 +15,6 @@ taking "20px" and doubling its size => calc('20px', '* 2'); // '40px'
 
 | Param | Type | Description |
 | --- | --- | --- |
-| text | <code>string</code> | the value that will be modified (a number "string") |
+| inp | <code>string</code> \| <code>number</code> | the value that will be modified.  This is a number or a string representing a number. |
 | oper | <code>string</code> | the operation that will be applied to the text number |
 

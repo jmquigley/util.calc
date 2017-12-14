@@ -14,15 +14,20 @@ import {regexNumber} from 'util.constants';
  *
  * taking "20px" and doubling its size => calc('20px', '* 2'); // '40px'
  *
- * @param text {string} the value that will be modified (a number "string")
+ * @param inp {string | number} the value that will be modified.  This is a number
+ * or a string representing a number.
  * @param oper {string} the operation that will be applied to the text number
  * @return a new string after the simple math operation has been applied.
  */
-export function calc(text: string, oper: string): string {
+export function calc(inp: string | number, oper: string): string {
 
-	// The input text must start with a number
-	if (!/^[+-\d]+/.test(text.trim())) {
-		throw new Error(`Invalid number string given to calc (${text}).  Must begin with number`);
+	if (typeof inp === 'number') {
+		inp = inp.toString();
+	}
+
+	// The input n must start with a number
+	if (!/^[+-\d]+/.test(inp.trim())) {
+		throw new Error(`Invalid number string given to calc (${inp}).  Must begin with number`);
 	}
 
 	//
@@ -39,10 +44,10 @@ export function calc(text: string, oper: string): string {
 
 	let ext: string = '';
 	let val: number = 0;
-	const match: any = text.match(regexNumber);
+	const match: any = inp.match(regexNumber);
 	if (match) {
 		val = Number(match[0]);
-		ext = text.slice(match[0].length);
+		ext = inp.slice(match[0].length);
 	}
 	const delta = Number(oper.slice(1));
 

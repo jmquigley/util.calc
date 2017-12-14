@@ -49,3 +49,9 @@ test('Test with a time value', t => {
 	t.is(calc('0.5s', '* 2'), '1s');
 	t.is(calc('1.0s', '/ 2'), '0.5s');
 });
+
+test('Test with a number value', t => {
+	t.is(calc(0, '- 1'), '-1');
+	t.is(calc(-1, '- 1'), '-2');
+	t.is(calc(1, '- 1'), '0');
+});
