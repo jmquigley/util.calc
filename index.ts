@@ -1,6 +1,7 @@
 'use strict';
 
 const debug = require('debug')('util.calc');
+const pkg = require('./package.json');
 
 import {regexNumber} from 'util.constants';
 
@@ -59,7 +60,10 @@ export function calc(inp: string | number, oper: string): string {
 		case '/': result = val / delta; break;
 	}
 
-	debug(`val: ${val}, ext: ${ext}, oper: ${oper}, delta: ${delta}, result: ${result}`);
+	/* istanbul ignore if  */
+	if (pkg.debug) {
+		debug(`val: ${val}, ext: ${ext}, oper: ${oper}, delta: ${delta}, result: ${result}`);
+	}
 
 	return(`${result}${ext}`);
 }
