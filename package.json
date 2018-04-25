@@ -1,7 +1,7 @@
 {
   "name": "util.calc",
-  "version": "0.0.9",
-	"debug": false,
+  "version": "0.0.10",
+  "debug": false,
   "author": "jmquigley <jmquigley@outlook.com>",
   "description": "Takes an HTML sizing string and computes a new value",
   "main": "./index.js",
