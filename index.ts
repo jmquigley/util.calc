@@ -31,9 +31,14 @@ function parseNumber(inp: string): ParseData {
  * Takes the input number and checks that it conforms to a valid number format
  */
 function validate(inp: string, oper: string = ''): void {
-	// The input n must start with a number
-	if (!/^[+-\d]+/.test(inp.trim())) {
-		throw new Error(`Invalid number string given to calc (${inp}).  Must begin with number`);
+
+	if (inp) {
+		// The input n must start with a number
+		if (!/^[+-\d]+/.test(inp.trim())) {
+			throw new Error(`Invalid number string given to calc (${inp}).  Must begin with number`);
+		}
+	} else {
+		throw new Error('Invalid input string given (null)');
 	}
 
 	//
@@ -44,7 +49,7 @@ function validate(inp: string, oper: string = ''): void {
 	// '+ -.234
 	// '- 12345'
 
-	if (oper !== '') {
+	if (oper) {
 		if (!/[\+\-\*\/]{1}\s*[+-]*\d*\.*\d+$/.test(oper.trim())) {
 			throw new Error(`Invalid operation string given to calc (${oper}).`);
 		}
@@ -72,7 +77,12 @@ export function calc(inp: string | number, oper: string): string {
 		inp = inp.toString();
 	}
 
+	if (!oper || typeof oper !== 'string') {
+		return inp;
+	}
+
 	validate(inp, oper);
+
 	const {val, ext} = parseNumber(inp);
 
 	const delta = Number(oper.slice(1));
@@ -101,7 +111,7 @@ function convert(inp: string | number, ext: string, fontSize: number, precision:
 	validate(inp);
 	const {val} = parseNumber(inp);
 
-	return(`${parseFloat((val / fontSize).toFixed(precision))}${ext}`);
+	return(`${parseFloat(Math.abs(val / fontSize).toFixed(Math.abs(precision)))}${ext}`);
 }
 
 /**

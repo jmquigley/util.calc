@@ -44,6 +44,21 @@ test('Test bad numbers given to the calc function', () => {
 	}).toThrow();
 });
 
+test('Test null value passed to the calc function', () => {
+	expect(() => {
+		calc(null, '+ 2');
+	}).toThrow();
+
+	expect(() => {
+		calc('', '+ 2');
+	}).toThrow();
+});
+
+test('Test valid input, but empty option to calc function', () => {
+	expect(calc('80px', null)).toBe('80px');
+	expect(calc('80px', '')).toBe('80px');
+})
+
 test('Test with a time value', () => {
 	expect(calc('0.5s', '* 2')).toBe('1s');
 	expect(calc('1.0s', '/ 2')).toBe('0.5s');
@@ -69,14 +84,37 @@ test('Test converting 79px to rem and em with font size 16', () => {
 	expect(toEM(79)).toBe('4.938em');
 });
 
+test('Test converting 80 px to rem and em with a font size of -16 and precision of -2', () => {
+	expect(toREM('80px', -16, -2)).toBe('5rem');
+	expect(toREM(80, -16, -2)).toBe('5rem');
+	expect(toEM('80px', -16, -2)).toBe('5em');
+	expect(toEM(80, -16, -2)).toBe('5em');
+});
+
 test('Test bad numbers given to the toEM functions', () => {
 	expect(() => {
 		toEM('abc');
+	}).toThrow();
+
+	expect(() => {
+		toEM('');
+	}).toThrow();
+
+	expect(() => {
+		toEM(null);
 	}).toThrow();
 });
 
 test('Test bad numbers given to the toREM functions', () => {
 	expect(() => {
 		toREM('abc');
+	}).toThrow();
+
+	expect(() => {
+		toREM('');
+	}).toThrow();
+
+	expect(() => {
+		toREM(null);
 	}).toThrow();
 });
