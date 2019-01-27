@@ -1,7 +1,6 @@
 {
   "name": "util.calc",
   "version": "0.0.11",
-  "debug": false,
   "author": "jmquigley <jmquigley@outlook.com>",
   "description": "Takes an HTML sizing string and computes a new value",
   "main": "./index.js",
@@ -24,22 +23,23 @@
   },
   "devDependencies": {
     "@types/debug": "^0.0.31",
+    "@types/jest": "^23.3.13",
     "@types/node": "^10.12.18",
-    "ava": "^1.0.1",
     "coveralls": "^3.0.2",
     "debug": "^4.1.1",
     "jest": "^23.6.0",
-    "nyc": "^13.1.0",
+    "ts-jest": "^23.10.5",
     "tslint": "^5.12.0",
     "typescript": "^3.2.2",
-    "typescript-babel-jest": "^1.0.5",
     "util.pkgwrap": "^0.0.94"
   },
   "pkgwrap": {
     "cleanup": [
       "docs/",
       "index.d.ts",
-      "index.js"
+      "index.js",
+			"index.test.js",
+			"index.test.d.ts"
     ]
   },
   "jest": {
@@ -55,14 +55,11 @@
       "json"
     ],
     "notify": false,
+    "preset": "ts-jest",
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/",
       "__tests__/helpers"
     ],
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
-    "transform": {
-      "^.+\\.ts?$": "typescript-babel-jest"
-    },
     "verbose": false
   },
   "scripts": {

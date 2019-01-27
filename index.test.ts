@@ -1,6 +1,6 @@
 'use strict';
 
-import {calc} from '../index';
+import {calc, toEM, toREM} from './index';
 
 test('Test calc addition', () => {
 	expect(calc('20px', '+5')).toBe('25px');
@@ -53,4 +53,30 @@ test('Test with a number value', () => {
 	expect(calc(0, '- 1')).toBe('-1');
 	expect(calc(-1, '- 1')).toBe('-2');
 	expect(calc(1, '- 1')).toBe('0');
+});
+
+test('Test converting 80px to rem and em with font size 16', () => {
+	expect(toREM('80px')).toBe('5rem');
+	expect(toREM(80)).toBe('5rem');
+	expect(toEM('80px')).toBe('5em');
+	expect(toEM(80)).toBe('5em');
+});
+
+test('Test converting 79px to rem and em with font size 16', () => {
+	expect(toREM('79px')).toBe('4.938rem');
+	expect(toREM(79)).toBe('4.938rem');
+	expect(toEM('79px')).toBe('4.938em');
+	expect(toEM(79)).toBe('4.938em');
+});
+
+test('Test bad numbers given to the toEM functions', () => {
+	expect(() => {
+		toEM('abc');
+	}).toThrow();
+});
+
+test('Test bad numbers given to the toREM functions', () => {
+	expect(() => {
+		toREM('abc');
+	}).toThrow();
 });
