@@ -1,6 +1,6 @@
 {
   "name": "util.calc",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "author": "jmquigley <jmquigley@outlook.com>",
   "description": "Takes an HTML sizing string and computes a new value",
   "main": "./index.js",
@@ -38,8 +38,8 @@
       "docs/",
       "index.d.ts",
       "index.js",
-			"index.test.js",
-			"index.test.d.ts"
+      "index.test.js",
+      "index.test.d.ts"
     ]
   },
   "jest": {
