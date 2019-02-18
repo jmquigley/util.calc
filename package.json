@@ -1,6 +1,6 @@
 {
 	"name": "util.calc",
-	"version": "0.0.13",
+	"version": "0.0.14",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "Takes an HTML sizing string and computes a new value",
 	"private": false,
