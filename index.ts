@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-import {regexNumber} from 'util.constants';
+import {regexNumber} from "util.constants";
 
 interface ParseData {
 	val: number;
@@ -14,7 +14,7 @@ interface ParseData {
  */
 function parseNumber(inp: string): ParseData {
 	const out: ParseData = {
-		ext: '',
+		ext: "",
 		val: 0
 	};
 
@@ -30,15 +30,16 @@ function parseNumber(inp: string): ParseData {
 /*
  * Takes the input number and checks that it conforms to a valid number format
  */
-function validate(inp: string, oper: string = ''): void {
-
+function validate(inp: string, oper: string = ""): void {
 	if (inp) {
 		// The input n must start with a number
 		if (!/^[+-\d]+/.test(inp.trim())) {
-			throw new Error(`Invalid number string given to calc (${inp}).  Must begin with number`);
+			throw new Error(
+				`Invalid number string given to calc (${inp}).  Must begin with number`
+			);
 		}
 	} else {
-		throw new Error('Invalid input string given (null)');
+		throw new Error("Invalid input string given (null)");
 	}
 
 	//
@@ -51,7 +52,9 @@ function validate(inp: string, oper: string = ''): void {
 
 	if (oper) {
 		if (!/[\+\-\*\/]{1}\s*[+-]*\d*\.*\d+$/.test(oper.trim())) {
-			throw new Error(`Invalid operation string given to calc (${oper}).`);
+			throw new Error(
+				`Invalid operation string given to calc (${oper}).`
+			);
 		}
 	}
 }
@@ -72,12 +75,11 @@ function validate(inp: string, oper: string = ''): void {
  * @return a new string after the simple math operation has been applied.
  */
 export function calc(inp: string | number, oper: string): string {
-
-	if (typeof inp === 'number') {
+	if (typeof inp === "number") {
 		inp = inp.toString();
 	}
 
-	if (!oper || typeof oper !== 'string') {
+	if (!oper || typeof oper !== "string") {
 		return inp;
 	}
 
@@ -89,29 +91,43 @@ export function calc(inp: string | number, oper: string): string {
 	let result: number;
 
 	switch (oper[0]) {
-		case '+': result = val + delta; break;
-		case '-': result = val - delta; break;
-		case '*': result = val * delta; break;
-		case '/': result = val / delta; break;
+		case "+":
+			result = val + delta;
+			break;
+		case "-":
+			result = val - delta;
+			break;
+		case "*":
+			result = val * delta;
+			break;
+		case "/":
+			result = val / delta;
+			break;
 	}
 
-	return(`${result}${ext}`);
+	return `${result}${ext}`;
 }
 
 /*
  * Converts an input sizing value from "px" to its equivalent "rem" or "em" value
  * depending on the given input extension.
  */
-function convert(inp: string | number, ext: string, fontSize: number, precision: number) {
-
-	if (typeof inp === 'number') {
+function convert(
+	inp: string | number,
+	ext: string,
+	fontSize: number,
+	precision: number
+) {
+	if (typeof inp === "number") {
 		inp = inp.toString();
 	}
 
 	validate(inp);
 	const {val} = parseNumber(inp);
 
-	return(`${parseFloat(Math.abs(val / fontSize).toFixed(Math.abs(precision)))}${ext}`);
+	return `${parseFloat(
+		Math.abs(val / fontSize).toFixed(Math.abs(precision))
+	)}${ext}`;
 }
 
 /**
@@ -126,8 +142,12 @@ function convert(inp: string | number, ext: string, fontSize: number, precision:
  * by the calculation
  * @return the new "em" conversion value.
  */
-export function toEM(inp: string | number, fontSize: number = 16, precision: number = 3): string {
-	return convert(inp, 'em', fontSize, precision);
+export function toEM(
+	inp: string | number,
+	fontSize: number = 16,
+	precision: number = 3
+): string {
+	return convert(inp, "em", fontSize, precision);
 }
 
 /**
@@ -142,7 +162,10 @@ export function toEM(inp: string | number, fontSize: number = 16, precision: num
  * by the calculation
  * @return the new "rem" conversion value.
  */
-export function toREM(inp: string | number, fontSize: number = 16, precision: number = 3): string {
-	return convert(inp, 'rem', fontSize, precision);
-
+export function toREM(
+	inp: string | number,
+	fontSize: number = 16,
+	precision: number = 3
+): string {
+	return convert(inp, "rem", fontSize, precision);
 }
