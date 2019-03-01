@@ -35,11 +35,11 @@ taking "20px" and doubling its size => calc('20px', '* 2'); // '40px'
 
 **Kind**: global function  
 **Returns**: a new string after the simple math operation has been applied.  
+**Params**
 
-| Param | Type | Description |
-| --- | --- | --- |
-| inp | <code>string</code> \| <code>number</code> | the value that will be modified.  This is a number or a string representing a number. |
-| oper | <code>string</code> | the operation that will be applied to the text number |
+- inp <code>string</code> | <code>number</code> - the value that will be modified.  This is a number
+or a string representing a number.
+- oper <code>string</code> - the operation that will be applied to the text number
 
 <a name="toEM"></a>
 
@@ -50,12 +50,14 @@ by the given font size.
 
 **Kind**: global function  
 **Returns**: the new "em" conversion value.  
+**Params**
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| inp | <code>string</code> \| <code>number</code> |  | the value that will be modified.  This is a number or a string representing a number as a "##px" value. |
-| fontSize | <code>number</code> | <code>16</code> | (16) the pixel height of the font used in this calculation. |
-| precision | <code>number</code> | <code>3</code> | (3) the maximum number of decimal places returned by the calculation |
+- inp <code>string</code> | <code>number</code> - the value that will be modified.  This is a number
+or a string representing a number as a "##px" value.
+- fontSize <code>number</code> <code> = 16</code> - (16) the pixel height of the font used in this
+calculation.
+- precision <code>number</code> <code> = 3</code> - (3) the maximum number of decimal places returned
+by the calculation
 
 <a name="toREM"></a>
 
@@ -66,10 +68,12 @@ by the given font size.
 
 **Kind**: global function  
 **Returns**: the new "rem" conversion value.  
+**Params**
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| inp | <code>string</code> \| <code>number</code> |  | the value that will be modified.  This is a number or a string representing a number as a "##px" value. |
-| fontSize | <code>number</code> | <code>16</code> | (16) the pixel height of the font used in this calculation. |
-| precision | <code>number</code> | <code>3</code> | (3) the maximum number of decimal places returned by the calculation |
+- inp <code>string</code> | <code>number</code> - the value that will be modified.  This is a number
+or a string representing a number as a "##px" value.
+- fontSize <code>number</code> <code> = 16</code> - (16) the pixel height of the font used in this
+calculation.
+- precision <code>number</code> <code> = 3</code> - (3) the maximum number of decimal places returned
+by the calculation
 
