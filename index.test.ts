@@ -1,6 +1,6 @@
 "use strict";
 
-import {calc, toEM, toREM} from "../index";
+import {calc, toEM, toREM} from "./index";
 
 test("Test calc addition", () => {
 	expect(calc("20px", "+5")).toBe("25px");
