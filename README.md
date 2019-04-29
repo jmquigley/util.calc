@@ -71,7 +71,7 @@ import {calc} from 'util.calc';
 calc('20px', '/ 4'); // 5px
 ```
 
-## Usage (toREM/toEM)
+## Usage (toREM/toEM/unitToNumber)
 
 ```javascript
 import {toREM, toEM} from 'util.calc';
@@ -93,4 +93,12 @@ The next example shows the precision value when the font size does not divide ev
 import {toREM, toEM} from 'util.calc';
 toREM('79px'); // '4.938rem'
 toEM('79px');  // '4.938em'
+```
+
+The last example converts a unit string into a number:
+
+```javascript
+import {unitToNumber} from 'util.calc';
+unitToNumber("24px");     // 24
+unitToNumber("1.5rem");   // 1.5
 ```

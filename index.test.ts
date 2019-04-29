@@ -1,6 +1,6 @@
 "use strict";
 
-import calc, {toEM, toREM} from "./index";
+import calc, {toEM, toREM, unitToNumber} from "./index";
 
 test("Test calc addition", () => {
 	expect(calc("20px", "+5")).toBe("25px");
@@ -122,5 +122,20 @@ test("Test bad numbers given to the toREM functions", () => {
 test("Test bad input type to calc function", () => {
 	expect(() => {
 		calc(["line-height", "123", "px"]);
+	}).toThrow();
+});
+
+test("Convert a string with units to a number", () => {
+	expect(unitToNumber("24px")).toBe(24);
+	expect(unitToNumber("24pc")).toBe(24);
+	expect(unitToNumber("24pt")).toBe(24);
+	expect(unitToNumber("1.2em")).toBe(1.2);
+	expect(unitToNumber("1.55rem")).toBe(1.55);
+});
+
+test("Attempt to convert unit string with bad input", () => {
+	expect(() => {
+		const x = unitToNumber("abcd");
+		console.log(x);
 	}).toThrow();
 });

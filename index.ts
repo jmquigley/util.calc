@@ -2,10 +2,13 @@
 
 import {regexNumber} from "util.constants";
 
-interface ParseData {
+export interface ParseData {
 	val: number;
 	ext: string;
 }
+
+const units: string[] = ["em", "pc", "px", "pt", "rem"];
+const reUnits: RegExp = RegExp(`(${units.join("|")});`, "gi");
 
 /*
  * Takes a string html sizing number (like `5px`) and breaks it into its
@@ -191,6 +194,24 @@ export function toREM(
 	precision: number = 3
 ): string {
 	return convert(inp, "rem", fontSize, precision);
+}
+
+/**
+ * Converts a unit type number (`16px`) to its number counterpart (`16`).  It
+ * will check if a number exists.  If the input is not a number, then an
+ * exception is thrown.  This function will handle: "em, pc, pt, px, rem"
+ * units.
+ * @param inp {string} - the unit number string to convert.
+ * @return the number component of the unit value.
+ */
+export function unitToNumber(inp: string): number {
+	const n = parseFloat(inp.replace(reUnits, ""));
+
+	if (isNaN(n)) {
+		throw new Error(`Invalid input number given (${inp})`);
+	}
+
+	return n;
 }
 
 export default calc;
