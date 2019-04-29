@@ -1,6 +1,6 @@
 "use strict";
 
-import {calc, toEM, toREM} from "./index";
+import calc, {toEM, toREM} from "./index";
 
 test("Test calc addition", () => {
 	expect(calc("20px", "+5")).toBe("25px");
@@ -116,5 +116,11 @@ test("Test bad numbers given to the toREM functions", () => {
 
 	expect(() => {
 		toREM(null);
+	}).toThrow();
+});
+
+test("Test bad input type to calc function", () => {
+	expect(() => {
+		calc(["line-height", "123", "px"]);
 	}).toThrow();
 });

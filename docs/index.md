@@ -54,9 +54,9 @@ by the given font size.
 
 - inp <code>string</code> | <code>number</code> - the value that will be modified.  This is a number
 or a string representing a number as a "##px" value.
-- fontSize <code>number</code> <code> = 16</code> - (16) the pixel height of the font used in this
+- fontSize <code>number</code> - (16) the pixel height of the font used in this
 calculation.
-- precision <code>number</code> <code> = 3</code> - (3) the maximum number of decimal places returned
+- precision <code>number</code> - (3) the maximum number of decimal places returned
 by the calculation
 
 <a name="toREM"></a>
@@ -72,8 +72,8 @@ by the given font size.
 
 - inp <code>string</code> | <code>number</code> - the value that will be modified.  This is a number
 or a string representing a number as a "##px" value.
-- fontSize <code>number</code> <code> = 16</code> - (16) the pixel height of the font used in this
+- fontSize <code>number</code> - (16) the pixel height of the font used in this
 calculation.
-- precision <code>number</code> <code> = 3</code> - (3) the maximum number of decimal places returned
+- precision <code>number</code> - (3) the maximum number of decimal places returned
 by the calculation
 

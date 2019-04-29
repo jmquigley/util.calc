@@ -75,17 +75,26 @@ function validate(inp: string, oper: string = ""): void {
  * @return a new string after the simple math operation has been applied.
  */
 export function calc(inp: string | number, oper: string): string {
-	if (typeof inp === "number") {
-		inp = inp.toString();
+	const inpType: string = typeof inp;
+
+	if (!["string", "number"].includes(inpType)) {
+		throw new Error(`Invalid input type given to calc (${inpType})`);
+	}
+
+	let input: string = "";
+	if (inpType === "number") {
+		input = inp.toString();
+	} else {
+		input = inp as string;
 	}
 
 	if (!oper || typeof oper !== "string") {
-		return inp;
+		return input;
 	}
 
-	validate(inp, oper);
+	validate(input, oper);
 
-	const {val, ext} = parseNumber(inp);
+	const {val, ext} = parseNumber(input);
 
 	const delta = Number(oper.slice(1));
 	let result: number;
@@ -169,3 +178,5 @@ export function toREM(
 ): string {
 	return convert(inp, "rem", fontSize, precision);
 }
+
+export default calc;
