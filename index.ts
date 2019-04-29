@@ -8,9 +8,12 @@ interface ParseData {
 }
 
 /*
- * Takes a string html sizing number (like 5px) and breaks it into its
+ * Takes a string html sizing number (like `5px`) and breaks it into its
  * number and extension.  It then returns the two parts as part of an
  * object.
+ * @param inp {string} - the input string value to parse
+ * @return an object that contains the extension (px, rem, etc) and the
+ * number value associated with that extension.
  */
 function parseNumber(inp: string): ParseData {
 	const out: ParseData = {
@@ -29,6 +32,10 @@ function parseNumber(inp: string): ParseData {
 
 /*
  * Takes the input number and checks that it conforms to a valid number format
+ * It will throw exceptions based on the errors encoutered with the validation
+ * process.
+ * @param inp {string} - the input string that will be validated
+ * @param oper {string} - the operation that will be applied to the string
  */
 function validate(inp: string, oper: string = ""): void {
 	if (inp) {
@@ -69,9 +76,9 @@ function validate(inp: string, oper: string = ""): void {
  *
  * taking "20px" and doubling its size => calc('20px', '* 2'); // '40px'
  *
- * @param inp {string | number} the value that will be modified.  This is a number
- * or a string representing a number.
- * @param oper {string} the operation that will be applied to the text number
+ * @param inp {string | number} - the value that will be modified.  This is a
+ * number or a string representing a number.
+ * @param oper {string} - the operation that will be applied to the text number
  * @return a new string after the simple math operation has been applied.
  */
 export function calc(inp: string | number, oper: string): string {
@@ -119,7 +126,14 @@ export function calc(inp: string | number, oper: string): string {
 
 /*
  * Converts an input sizing value from "px" to its equivalent "rem" or "em" value
- * depending on the given input extension.
+ * depending on the given input extension.  This is done by dividing the input
+ * number size in pixels by the base font size given (for "normal" it is 16px).
+ * @param inp {string | number} - the input value to convert
+ * @param ext {string} - the new extension for the converted value
+ * @param fontSize {number} - the current font size in pixels (16 for `16px`, etc)
+ * @param precision {number} - the number of decimals retained in the conversion
+ * @return a new string representing the converted size in either rem or em
+ * depending on the `ext` parameter.
  */
 function convert(
 	inp: string | number,
@@ -143,11 +157,11 @@ function convert(
  * Takes an input sizing value as a px value and converts it to an
  * equivalent "em" value.  It divides the size of the input value
  * by the given font size.
- * @param inp {string | number} the value that will be modified.  This is a number
- * or a string representing a number as a "##px" value.
- * @param fontSize {number} (16) the pixel height of the font used in this
+ * @param inp {string | number} - the value that will be modified.  This is a
+ * number or a string representing a number as a "##px" value.
+ * @param fontSize=16 {number} - the pixel height of the font used in this
  * calculation.
- * @param precision {number} (3) the maximum number of decimal places returned
+ * @param precision=3 {number} - the maximum number of decimal places returned
  * by the calculation
  * @return the new "em" conversion value.
  */
@@ -165,9 +179,9 @@ export function toEM(
  * by the given font size.
  * @param inp {string | number} the value that will be modified.  This is a number
  * or a string representing a number as a "##px" value.
- * @param fontSize {number} (16) the pixel height of the font used in this
+ * @param fontSize=16 {number} - the pixel height of the font used in this
  * calculation.
- * @param precision {number} (3) the maximum number of decimal places returned
+ * @param precision=3 {number} - the maximum number of decimal places returned
  * by the calculation
  * @return the new "rem" conversion value.
  */

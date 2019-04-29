@@ -19,7 +19,6 @@
 	"module": "./index.es.min.js",
 	"types": "./index.d.ts",
 	"files": [
-		"index.js",
 		"index.*.min.js",
 		"index.d.ts"
 	],
@@ -62,7 +61,7 @@
 		]
 	},
 	"scripts": {
-		"all": "yarn install && yarn build && yarn docs && yarn test && yarn manifest",
+		"all": "yarn install && yarn build && yarn test && yarn manifest",
 		"build": "yarn lint && yarn prettier && yarn build:umd && yarn build:es && yarn build:cjs",
 		"build:cjs": "babel index.ts --sourceType module --out-file index.cjs.min.js",
 		"build:es": "minify index.js --sourceType module --out-file index.es.min.js",
