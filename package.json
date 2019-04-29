@@ -1,6 +1,6 @@
 {
 	"name": "util.calc",
-	"version": "0.0.19",
+	"version": "0.0.20",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "Takes an HTML sizing string and computes a new value",
 	"private": false,
@@ -61,7 +61,7 @@
 		]
 	},
 	"scripts": {
-		"all": "yarn install && yarn build && yarn test && yarn manifest",
+		"all": "yarn install && yarn build && yarn docs && yarn test && yarn manifest",
 		"build": "yarn lint && yarn prettier && yarn build:umd && yarn build:es && yarn build:cjs",
 		"build:cjs": "babel index.ts --sourceType module --out-file index.cjs.min.js",
 		"build:es": "minify index.js --sourceType module --out-file index.es.min.js",
