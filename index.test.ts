@@ -1,5 +1,3 @@
-"use strict";
-
 import calc, {toEM, toREM, unitToNumber} from "./index";
 
 test("Test calc addition", () => {

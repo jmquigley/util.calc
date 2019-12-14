@@ -1,5 +1,3 @@
-"use strict";
-
 import {regexNumber} from "util.constants";
 
 export interface ParseData {
